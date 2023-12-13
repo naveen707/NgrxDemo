@@ -1,0 +1,70 @@
+<form class="container" [formGroup]="taskForm">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="pagetitle">Add / Edit Todo</h4>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label>ID</label>
+                <div class="formselect">
+                    <mat-form-field appearance="fill">
+                        <input [formControl]="id" required matInput />
+
+                    </mat-form-field>
+                    <mat-error *ngIf="id.hasError('required')&&id.touched">ID is
+                        required.</mat-error>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Task Title</label>
+                <div class="formselect">
+                    <mat-form-field appearance="fill">
+                        <input [formControl]="taskTitle" required matInput />
+
+                    </mat-form-field>
+                    <mat-error *ngIf="taskTitle.hasError('required')&&taskTitle.touched">Task title is
+                        required.</mat-error>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Task Description</label>
+                    <div class="formselect">
+                        <mat-form-field appearance="fill">
+                            <textarea [formControl]="taskDetails" matInput rows="8"></textarea>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Priority</label>
+                    <div class="formselect">
+                        <mat-form-field appearance="fill">
+                            <mat-select [formControl]="priority">
+                                <mat-option value="High">High</mat-option>
+                                <mat-option value="Medium">Medium</mat-option>
+                                <mat-option value="Low">Low</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-error *ngIf="priority.hasError('required')&&priority.touched">Task priority is
+                            required.</mat-error>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+            <div class="action-buttons">
+
+                <button [disabled]="taskForm.invalid" (click)="save()" mat-raised-button class="ms-2" color="black">
+                    Save/Update
+                </button>
+
+                <!-- <button mat-raised-button color="primary" class="ms-auto">Submit</button> -->
+
+            </div>
+        </div>
+    </div>
+</form>

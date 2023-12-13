@@ -1,0 +1,72 @@
+<div class="container mt-2">
+    <button routerLink="/add" mat-raised-button class="ms-2" color="black">
+        Add Todo
+    </button>
+
+    <div class="table-responsive mt-24">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="taskTitle">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Title </th>
+                <td mat-cell *matCellDef="let row"> {{row.taskTitle}} </td>
+            </ng-container>
+            <ng-container matColumnDef="taskDetails">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Details </th>
+                <td mat-cell *matCellDef="let row"> {{row.taskDetails}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element">
+                    <button routerLink="/edit/{{element.id}}" mat-button color="danger"
+                        aria-label="Example icon button with a home icon">
+                        EDIT
+                    </button>
+
+                    <button (click)="delete(element.id)" mat-button color="danger"
+                        aria-label="Example icon button with a home icon">
+                        Delete
+                    </button>
+
+                    <button (click)="completeTodo(element.id)" mat-button color="danger"
+                        aria-label="Example icon button with a home icon">
+                        Complete
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="9">No task found.</td>
+            </tr>
+        </table>
+    </div>
+    <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+        @for(todo of todos$ | async;track todo.id){
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ todo.taskTitle }}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ todo.taskDetails }}</li>
+                    <li class="list-group-item">{{ todo.priority }}</li>
+                </ul>
+            </div>
+        </div>
+        }
+    </div> -->
+</div>
