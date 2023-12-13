@@ -1,0 +1,58 @@
+.pageheader{
+    width: 100%;
+    border-bottom: 1px solid #ececec;
+    padding: 16px 0;
+    .header-inner{
+        display: flex;
+        align-items: center;
+
+        h2{
+            margin:0px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            width: 100%;
+        }
+        button{
+            white-space: nowrap;
+            height: unset !important;
+            padding: 8px 16px;
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+            margin:0px;
+        }
+    }
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    label{
+        font-size:14px;
+        font-weight: 600;
+        margin-bottom: 0px;
+    }
+    ::ng-deep{
+        .mat-mdc-text-field-wrapper {
+            background: #fff;
+            padding: 0px;
+            .mat-mdc-form-field-infix{
+                padding:0px;
+                min-height: 0px;
+                .mat-mdc-form-field-input-control,
+                .mat-mdc-select-trigger {
+                    height: auto;
+                    padding: 8px 16px;
+                    border: 1px solid #B0BEC5;
+                    border-radius: 8px;
+                }
+            }
+            .mdc-line-ripple {
+                display: none;
+            }
+            .mat-mdc-form-field-focus-overlay {
+                display: none;
+            }
+        }
+    }
+}

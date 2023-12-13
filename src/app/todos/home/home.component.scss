@@ -1,0 +1,43 @@
+.pageheader{
+    width: 100%;
+    border-bottom: 1px solid #ececec;
+    padding: 16px 0;
+    .header-inner{
+        display: flex;
+        align-items: center;
+
+        h2{
+            margin:0px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            width: 100%;
+        }
+        button{
+            white-space: nowrap;
+            height: unset !important;
+            padding: 8px 16px;
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+            margin:0px;
+        }
+    }
+}
+.table-responsive{
+    width: 100%;
+    border-radius: 16px;
+    border:1px solid #CFD8DC;
+    ::ng-deep{
+        .mat-mdc-header-row{
+            height: auto;
+            th{
+                padding: 8px 16px;
+            }
+            background: #CFD8DC;
+        }
+        button{
+            height: unset;
+            padding: 6px 12px;
+        }
+    }
+}

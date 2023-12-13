@@ -24,7 +24,8 @@ import { ConfirmationDialogComponent } from '../shared/components/confirmation-d
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    
   ]
 })
 export class TodosModule { }

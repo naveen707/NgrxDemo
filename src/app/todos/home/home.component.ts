@@ -12,28 +12,112 @@ import { Appstate } from '../../shared/store/appstate';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogModel, ConfirmationDialogComponent } from '../../shared/components/confirmation-dialog/confirmation-dialog.component';
 import { take } from 'rxjs';
-
+export interface PeriodicElement {
+  id: any;
+  taskDetails: string;
+  taskTitle: string;
+  priority: string;
+  dateCompleted: any;
+  dateDue: string;
+  dateEnd: any;
+  active: any;
+  status: string;
+  dateCreated: string;
+  assignedToPerson: string;
+  assignedBy: number;
+  assignedTo: number;
+  taskType: string;
+  comments: any;
+}
+const ELEMENT_DATA: PeriodicElement[] = [
+  {
+    "id": 2,
+    "taskDetails": "Tuesday Task Description",
+    "taskTitle": "Tuesday Task",
+    "priority": "Medium",
+    "assignedBy": 12,
+    "assignedTo": 16,
+    "dateCompleted": null,
+    "dateDue": "10-09-2023 16:10:01",
+    "dateEnd": null,
+    "active": null,
+    "status": "Completed",
+    "dateCreated": "2023-10-09T16:10:04.513",
+    "assignedToPerson": "fauladsingh@yopmail.com",
+    "taskType": "OneOff",
+    "comments": null
+  },
+  {
+    "id": 3,
+    "taskDetails": "Wednesday Task Description",
+    "taskTitle": "Wednesday Task",
+    "priority": "Medium",
+    "assignedBy": 12,
+    "assignedTo": 16,
+    "dateCompleted": null,
+    "dateDue": "10-09-2023 16:10:01",
+    "dateEnd": null,
+    "active": null,
+    "status": "Completed",
+    "dateCreated": "2023-10-09T16:10:04.513",
+    "assignedToPerson": "fauladsingh@yopmail.com",
+    "taskType": "OneOff",
+    "comments": null
+  },
+  {
+    "id": 4,
+    "taskDetails": "Thursday Task Description",
+    "taskTitle": "Thursday Task",
+    "priority": "Medium",
+    "assignedBy": 12,
+    "assignedTo": 16,
+    "dateCompleted": null,
+    "dateDue": "10-09-2023 16:10:01",
+    "dateEnd": null,
+    "active": null,
+    "status": "Completed",
+    "dateCreated": "2023-10-09T16:10:04.513",
+    "assignedToPerson": "fauladsingh@yopmail.com",
+    "taskType": "OneOff",
+    "comments": null
+  }
+]
 @Component({
   selector: 'app-home',
   standalone: false,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
+
 export class HomeComponent implements OnInit {
-  constructor(private store: Store, private appStore: Store<Appstate>, public dialog: MatDialog) { }
-  todos$ = this.store.pipe(select(selectTodos)).subscribe((data: any) => {
-    this.dataSource = new MatTableDataSource(data);
-  });
+  
   displayedColumns: string[] = ['id', 'taskTitle', 'taskDetails', 'status', 'action'];
+  // displayedColumns: string[] = ['id', 'taskDetails', 'taskTitle','status',''];
+  dataSource = ELEMENT_DATA;
+  constructor(private store: Store, private appStore: Store<Appstate>, public dialog: MatDialog) { 
+    
+  }
+
+
+  // todos$ = this.store.pipe(select(selectTodos)).subscribe((data: any) => {
+  //   this.dataSource = new MatTableDataSource(data);
+  // });
+  
+  
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  dataSource!: MatTableDataSource<any>;
+  // dataSource!: MatTableDataSource<any>;
   ngOnInit(): void {
-    this.store.dispatch(invokeTodosAPI());
+    
+    // this.store.dispatch(invokeTodosAPI());
   }
 
+  ngAfterViewInit(): void{
+   
+  }
+  
   delete(id: any) {
     const message = `Are you sure you wish to delete this todo?`;
 

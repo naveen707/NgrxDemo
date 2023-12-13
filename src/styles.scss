@@ -2,3 +2,28 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+body {
+    *{
+        font-family: 'Inter', sans-serif;
+    }
+}
+.mat-black{
+    background: #37474F !important;
+    color: #fff !important;
+    font-family: 'Inter', sans-serif;
+}
+.mat-secondarylight{
+    background: #ececec !important;
+    color: #37474F !important;
+}
+.mat-dangerlight{
+    background: #ffe7e7 !important;
+    color: #ff3d01 !important;
+}
+.mat-successlight{
+    background: #e0ffe1 !important;
+    color: #00a90d !important;
+}
